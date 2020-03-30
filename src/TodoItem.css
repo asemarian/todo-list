@@ -1,0 +1,140 @@
+.TodoItem {
+    border: 0.1rem solid #44E5E7;
+    border-radius: 15rem;
+    margin: 0.5rem 0;
+    padding: 2rem;
+    display: flex;
+}
+
+.TodoItem-text {
+    font-size: 2.5rem;
+    color: #123838;
+    margin-right: auto;
+    transition: color 0.75s;
+}
+
+.TodoItem-inactive {
+    color: #44E5E7;
+    position: relative;
+}
+
+.TodoItem-inactive::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0.3rem;
+  border-radius: 15rem;
+  background-color: #44E5E7;
+  animation: strike 0.5s forwards;
+}
+
+@keyframes strike {
+    0% {
+        width: 0%;
+    } 100% {
+        width: 100%;
+    }
+}
+
+.TodoItem-button {
+    font-size: 2.5rem;
+    border: none;
+    outline: none;
+    color: #44E5E7;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.TodoItem-button.done {
+    margin-left: 1rem;
+    padding-left: 0.5rem;
+}
+
+.TodoItem-button.edit {
+    margin-left: 1rem;
+}
+
+.TodoItem-button.delete {
+    margin-left: 1rem;
+    padding: 0 0.5rem;
+}
+
+.TodoItem-button.save {
+    padding: 2rem;
+}
+
+.TodoItem-input {
+    padding: 2rem;
+    font-size: 2.5rem;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    border-radius: 15rem;
+    color: #123838;
+    width: 100%;
+}
+
+.TodoItem-input::placeholder {
+    color: #CFD2D1;
+}
+
+.TodoItem-form {
+    width: 100%;
+    display: flex;
+    border-radius: 15rem;
+    border: 0.1rem solid #44E5E7;
+    margin: 0.5rem 0;
+}
+
+@media (min-width: 830px) {
+    .TodoItem:hover .TodoItem-button.edit {
+        visibility: visible;
+        animation: fade-in 0.5s forwards;
+    }
+
+    .TodoItem:hover .TodoItem-button.delete {
+        visibility: visible;
+        animation: fade-in 0.5s forwards;
+    }
+
+    .TodoItem:not(:hover) .TodoItem-button.edit {
+        animation: fade-out 0.5s forwards;
+    }
+
+    .TodoItem:not(:hover) .TodoItem-button.delete {
+        animation: fade-out 0.5s forwards;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 830px) {
+    .TodoItem-text {
+        font-size: calc(2vmin + 0.5rem);
+    }
+
+    .TodoItem-button {
+        font-size: calc(2vmin + 0.5rem) !important;
+    }
+    
+    .TodoItem-input {
+        font-size: calc(2vmin + 0.5rem) !important;
+    }
+}

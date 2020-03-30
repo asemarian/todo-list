@@ -1,0 +1,47 @@
+.TodoForm-container {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    border: 0.1rem solid #CFD2D1;
+    border-radius: 15rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.TodoForm-container:focus-within {
+    border: 0.1rem solid transparent;
+    box-shadow: 0 0 0.5rem 0.2rem #44E5E7;
+}
+
+.TodoForm-input {
+    padding: 2rem;
+    font-size: 2.5rem;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    border-radius: 15rem;
+    color: #123838;
+    width: 100%;
+}
+
+.TodoForm-input::placeholder {
+    color: #CFD2D1;
+}
+
+.TodoForm-button {
+    font-size: 2.5rem;
+    border: none;
+    outline: none;
+    color: #44E5E7;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 2rem;
+}
+
+@media (max-width: 830px) {
+    .TodoForm-input {
+        font-size: calc(2vmin + 0.5rem);
+    }
+    .TodoForm-button {
+        font-size: calc(2vmin + 0.5rem) !important;
+    }
+}
